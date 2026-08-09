@@ -571,6 +571,10 @@
 
 <body>
 
+  <audio id="bgMusic" loop>
+    <source src="./music.mp3" type="audio/mpeg">
+  </audio>
+
   <div class="app">
     <div class="progress">
       <span id="progressBar"></span>
@@ -587,6 +591,12 @@
   </div>
 
   <script>
+    const bgMusic = document.getElementById("bgMusic");
+
+    document.addEventListener("click", () => {
+        bgMusic.play().catch(() => {});
+    }, { once: true });
+
     let currentStep = 0;
     let birthdayName = "Beautiful Girl";
     let gameScore = 0;
